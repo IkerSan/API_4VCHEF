@@ -1,0 +1,6 @@
+/vendor/
+/migrations/*.php
+!/migrations/.gitkeep
+.env
+.idea/
+.vscode/
