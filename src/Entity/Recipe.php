@@ -49,7 +49,6 @@ class Recipe
     {
         $this->ingredientes = new ArrayCollection();
         $this->pasos = new ArrayCollection();
-        $this->nutrients = new ArrayCollection(); // Warning: Will assume this maps to nutrientes, but need to check if Nutrients is used elsewhere
         $this->nutrientes = new ArrayCollection();
         $this->valoraciones = new ArrayCollection();
     }
@@ -168,8 +167,31 @@ class Recipe
     /**
      * @return Collection<int, Rating>
      */
+    /**
+     * @return Collection<int, Rating>
+     */
     public function getValoraciones(): Collection
     {
         return $this->valoraciones;
+    }
+
+    public function addValoracion(Rating $valoracion): static
+    {
+        if (!$this->valoraciones->contains($valoracion)) {
+            $this->valoraciones->add($valoracion);
+            $valoracion->setReceta($this);
+        }
+        return $this;
+    }
+
+    public function removeValoracion(Rating $valoracion): static
+    {
+        if ($this->valoraciones->removeElement($valoracion)) {
+            // set the owning side to null (unless already changed)
+            if ($valoracion->getReceta() === $this) {
+                $valoracion->setReceta(null);
+            }
+        }
+        return $this;
     }
 }
