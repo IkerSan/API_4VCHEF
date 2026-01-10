@@ -20,8 +20,8 @@ class NutrientTypeController
 
         $datos = array_map(fn($nutriente) => [
             'id' => $nutriente->getId(),
-            'nombre' => $nutriente->getNombre(),
-            'unidad' => $nutriente->getUnidad(),
+            'name' => $nutriente->getNombre(),
+            'unit' => $nutriente->getUnidad(),
         ], $nutrientes);
 
         return new JsonResponse($datos, Response::HTTP_OK);

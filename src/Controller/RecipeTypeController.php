@@ -20,8 +20,8 @@ class RecipeTypeController
 
         $datos = array_map(fn($tipo) => [
             'id' => $tipo->getId(),
-            'nombre' => $tipo->getNombre(),
-            'descripcion' => $tipo->getDescripcion(),
+            'name' => $tipo->getNombre(),
+            'description' => $tipo->getDescripcion(),
         ], $tipos);
 
         return new JsonResponse($datos, Response::HTTP_OK);
