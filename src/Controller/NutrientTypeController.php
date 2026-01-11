@@ -3,12 +3,13 @@
 namespace App\Controller;
 
 use App\Repository\NutrientTypeRepository;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-#[Route('/api/nutrient-types')]
-class NutrientTypeController
+#[Route('/nutrient-types')]
+class NutrientTypeController extends AbstractController
 {
     public function __construct(private NutrientTypeRepository $repository) {}
 

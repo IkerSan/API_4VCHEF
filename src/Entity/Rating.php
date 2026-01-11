@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: RatingRepository::class)]
 #[ORM\Table(name: 'valoraciones')]
-#[ORM\UniqueConstraint(name: 'unique_recipe_ip', columns: ['receta_id', 'ip_direccion'])]
+#[ORM\UniqueConstraint(name: 'unique_recipe_ip', columns: ['receta_id', 'direccion_ip'])]
 class Rating
 {
     #[ORM\Id]

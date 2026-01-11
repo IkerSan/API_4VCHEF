@@ -11,13 +11,14 @@ use App\Repository\NutrientTypeRepository;
 use App\Repository\RecipeRepository;
 use App\Repository\RecipeTypeRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-#[Route('/api/recipes')]
-class RecipeController
+#[Route('/recipes')]
+class RecipeController extends AbstractController
 {
     public function __construct(
         private RecipeRepository $recipeRepository,
